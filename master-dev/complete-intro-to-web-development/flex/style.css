@@ -1,0 +1,87 @@
+.box-1 {
+    border: 1px solid black;
+    color: white;
+    background-color: blue;
+    height: 150px;
+    width: 300px;
+}
+
+.box-2 {
+    border: 1px solid black;
+    color: white;
+    background-color: red;
+    height: 100px;
+    width: 300px;
+}
+
+.box-3 {
+    border: 1px solid black;
+    color: white;
+    background-color: green;
+    height: 200px;
+    width: 100px;
+}
+
+.floated div {
+    float: left;
+}
+
+.flex-container {
+    display: flex;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.reversed {
+    flex-direction: row-reverse;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.justify-content-end {
+    justify-content: flex-end;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-space-between {
+    justify-content: space-between;
+}
+
+.align-items-flex-end {
+    align-items: flex-end;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.align-items-stretch {
+    align-items: stretch;
+    height: 200px;
+}
+
+.no-height {
+    height: unset;
+}
+
+.flex-grow {}
+
+.flex-grow .box-1 {
+    flex-grow: 1;
+    width: 0;
+}
+
+.flex-grow .box-2 {
+    flex-grow: 5;
+    width: 0;
+}
+
+.flex-grow .box-3 {
+    flex-grow: 10;
+    width: 0;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin's Coffee Masters</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <img class="header-image" src="resources/coffee_masters_logo.png" alt="Coffee Masters Logo">
+        <h1 class="header-text">Coffee Masters</h1>
+    </header>
+    <form>
+        <main>
+            <div class="page">
+                <section class="items card">
+                    <h3>Items</h3>
+                    <div class="items-listing">
+                        <div class="item">
+                            <div class="item-amount">
+                                1x
+                            </div>
+                            <div class="item-name">
+                                Cappucino
+                            </div>
+                            <div class="item-price">
+                                $3.35
+                            </div>
+                            <ul class="item-options">
+                                <li class="item-option">
+                                    Lite foam
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <div class="item-amount">
+                                1x
+                            </div>
+                            <div class="item-name">
+                                Cappucino
+                            </div>
+                            <div class="item-price">
+                                $3.85
+                            </div>
+                            <ul class="item-options">
+                                <li class="item-option">
+                                    Lite milk
+                                </li>
+                                <li class="item-option">
+                                    Double espresso shot
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <div class="item-amount">
+                                1x
+                            </div>
+                            <div class="item-name">
+                                Croissant
+                            </div>
+                            <div class="item-price">
+                                $2.45
+                            </div>
+                            <ul class="item-options">
+                                <li class="item-option">
+                                    Butter
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="name card">
+                    <h3>Name</h3>
+                    <div class="input-group">
+                        <label for="name-input" class="input-label">
+                            Name for order
+                        </label>
+                        <input type="text" id="name-input" class="input-field">
+                    </div>
+                </section>
+                <section class="payment card">
+                    <h3>Payment</h3>
+                    <div class="input-group">
+                        <label for="card-number-input" class="input-label">
+                            Card number
+                        </label>
+                        <input type="text" id="card-number-input" class="input-field">
+                    </div>
+                    <div class="input-group">
+                        <label for="ccv-input" class="input-label">
+                            CCV number
+                        </label>
+                        <input type="text" id="ccv-input" class="input-field short-input">
+                    </div>
+                </section>
+                <section class="checkout">
+                    <div class="checkout-totals">
+                        <div class="total-row">
+                            <span>Subtotal:</span>
+                            <span>$19.27</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Tax:</span>
+                            <span>$0.96</span>
+                        </div>
+                        <div class="total-row grand-total">
+                            <span>Total:</span>
+                            <span>$20.23</span>
+                        </div>
+                    </div>
+                    <button class="place-order" type="submit">
+                        Place Order
+                    </button>
+                </section>
+            </div>
+        </main>
+    </form>
+</body>
+
+</html>

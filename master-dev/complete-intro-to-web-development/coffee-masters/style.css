@@ -1,0 +1,216 @@
+/* 1. Variables & Root */
+:root {
+    --brand-brown: #885a2d;
+    --bg-page: #f3f3f3;
+    --bg-card: #eee1d5;
+}
+
+/* 2. Base / Resets */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Google Sans", sans-serif;
+    margin: 0;
+    background-color: var(--bg-page);
+}
+
+/* 3. Layouts */
+.header {
+    background-color: #43281c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.header-image {
+    height: 40px;
+    padding-right: 4px;
+}
+
+.header-text {
+    font-weight: bold;
+    color: #faf5c4;
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+}
+
+.page {
+    display: grid;
+    grid-template-areas:
+        "items name"
+        "items payment"
+        "checkout checkout";
+    column-gap: 20px;
+    row-gap: 12px;
+    grid-template-columns: 1fr 1fr;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.items {
+    grid-area: items;
+}
+
+.name {
+    grid-area: name;
+}
+
+.payment {
+    grid-area: payment;
+}
+
+.checkout {
+    grid-area: checkout;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+}
+
+/* 4. Components */
+.card {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+}
+
+.card h3 {
+    color: var(--brand-brown);
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: lighter;
+}
+
+.items-listing {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    gap: 12px;
+}
+
+.item {
+    display: grid;
+    grid-template-areas:
+        "amount name price"
+        ". options .";
+    row-gap: 8px;
+    grid-template-columns: 1fr 8fr 1fr;
+    border-bottom: 2px solid #a49f9b;
+    padding: 10px 0;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.item-amount {
+    grid-area: amount;
+}
+
+.item-name {
+    grid-area: name;
+    font-weight: bold;
+}
+
+.item-price {
+    grid-area: price;
+    font-weight: bold;
+}
+
+.item-options {
+    grid-area: options;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: var(--brand-brown);
+}
+
+.item-option {
+    margin-bottom: 4px;
+}
+
+.checkout-totals {
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.grand-total {
+    font-weight: bold;
+}
+
+.place-order {
+    text-align: center;
+    width: 90%;
+    background-color: #deb993;
+    border-radius: 100px;
+    font-size: 16px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.place-order:hover {
+    background-color: #cda276;
+}
+
+/* 5. Forms / Inputs */
+.input-group {
+    margin-top: 12px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-label {
+    background-color: var(--bg-card);
+    color: var(--brand-brown);
+    font-size: 11px;
+    position: absolute;
+    left: 22px;
+    top: -7px;
+    padding: 0 2px;
+}
+
+.input-field {
+    border: 2px var(--brand-brown) solid;
+    padding: 8px;
+    border-radius: 100px;
+    background-color: var(--bg-card);
+    width: 100%;
+    text-indent: 14px;
+    font-size: 18px;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #5c3a1d;
+}
+
+.short-input {
+    width: 35%;
+}
+
+/* 6. Utilities / Media Queries */
+@media (max-width: 768px) {
+    .page {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "items"
+            "name"
+            "payment"
+            "checkout";
+    }
+}
