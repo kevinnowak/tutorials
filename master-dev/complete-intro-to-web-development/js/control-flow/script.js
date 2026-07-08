@@ -1,8 +1,8 @@
 const skyIsBlue = true;
 
 if (skyIsBlue) {
-    console.log("Yay!");
-    console.log("The sky is blue!");
+  console.log("Yay!");
+  console.log("The sky is blue!");
 } else {
-    console.log("The sky is... not blue?");
+  console.log("The sky is... not blue?");
 }

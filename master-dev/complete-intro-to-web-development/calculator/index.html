@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="calculator">
+      <!-- aria-live="polite" announces changes to the display to screen readers -->
+      <div class="display" aria-live="polite">0</div>
+      
+      <button class="clear" data-action="clear" aria-label="Clear">C</button>
+      <button class="backspace" data-action="backspace" aria-label="Backspace">
+        <!-- aria-hidden="true" prevents screen readers from redundantly announcing the image -->
+        <img class="icon" src="resources/backspace-svgrepo-com.svg" alt="" aria-hidden="true" />
+      </button>
+      <button class="operation" data-action="divide" aria-label="Divide">
+        <img class="icon" src="resources/divide-svgrepo-com.svg" alt="" aria-hidden="true" />
+      </button>
+      
+      <button data-value="7">7</button>
+      <button data-value="8">8</button>
+      <button data-value="9">9</button>
+      <button class="operation" data-action="multiply" aria-label="Multiply">
+        <img class="icon" src="resources/multiply-1-svgrepo-com.svg" alt="" aria-hidden="true" />
+      </button>
+      
+      <button data-value="4">4</button>
+      <button data-value="5">5</button>
+      <button data-value="6">6</button>
+      <button class="operation" data-action="subtract" aria-label="Subtract">
+        <img class="icon" src="resources/minus-svgrepo-com.svg" alt="" aria-hidden="true" />
+      </button>
+      
+      <button data-value="1">1</button>
+      <button data-value="2">2</button>
+      <button data-value="3">3</button>
+      <button class="operation" data-action="add" aria-label="Add">
+        <img class="icon" src="resources/plus-svgrepo-com.svg" alt="" aria-hidden="true" />
+      </button>
+      
+      <button class="zero" data-value="0">0</button>
+      <button class="operation" data-action="equal" aria-label="Equal">
+        <img class="icon" src="resources/equals-svgrepo-com.svg" alt="" aria-hidden="true" />
+      </button>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

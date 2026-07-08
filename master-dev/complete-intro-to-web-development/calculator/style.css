@@ -1,0 +1,120 @@
+:root {
+  /* Dynamic CSS Variables for colors */
+  --display-text: #ffffff;
+  --btn-text: #ffffff;
+  --accent-color: rgba(255, 149, 0, 0.85);
+  --accent-hover: rgba(255, 149, 0, 1);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-hover: rgba(255, 255, 255, 0.15);
+  --glass-active: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* Beautiful dark mode gradient background */
+  background: linear-gradient(135deg, #1f005c, #0b0014);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.calculator {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 360px;
+  /* Using gap to create smooth borders between buttons */
+  gap: 1px;
+  background: var(--glass-border);
+  border-radius: 24px;
+  overflow: hidden;
+  /* Glassmorphism effects */
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.display {
+  grid-column: 1 / span 4;
+  background-color: transparent;
+  color: var(--display-text);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 130px;
+  padding: 20px 25px;
+  font-size: 4.5rem;
+  font-weight: 300;
+  overflow: hidden;
+}
+
+button {
+  background-color: var(--glass-bg);
+  color: var(--btn-text);
+  border: none;
+  height: 85px;
+  font-family: inherit;
+  font-size: 1.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  /* Micro-animation for smooth interactions */
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+button:hover {
+  background-color: var(--glass-hover);
+}
+
+button:active {
+  background-color: var(--glass-active);
+  /* Make the button shrink slightly when clicked */
+  transform: scale(0.92);
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  /* Filter makes all SVGs uniformly white */
+  filter: brightness(0) invert(1);
+}
+
+/* Operation buttons */
+.operation {
+  background-color: var(--accent-color);
+  font-weight: 500;
+}
+
+.operation:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Special button styling */
+.clear {
+  color: #ff6b6b;
+}
+
+.clear:hover {
+  color: #ff8787;
+}
+
+/* Grid layout utilities */
+.zero {
+  grid-column: span 3;
+}
+
+.clear {
+  grid-column: span 2;
+}
+
+/* Old utility classes intentionally left empty so they don't break layout before Step 3 */
+.borderless-left, .borderless-bottom, .filter-black {}
