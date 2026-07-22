@@ -1,26 +1,62 @@
+// Getting all the elements
+const letters = document.querySelectorAll(".scoreboard-letter");
+const loadingDiv = document.querySelector(".info-bar");
+const ANSWER_LENGTH = 5;
+
 function isLetter(letter) {
   return /^[a-zA-Z]$/.test(letter);
 }
 
-const grid = document.querySelector("#letterGrid");
-const columns = 5;
-const rows = 6;
-const numberOfBoxes = columns * rows;
+// Ensuring the typing works
+async function init() {
+  let currentGuess = "";
+  let currentRow = 0;
 
-// Die 30 Eingabefelder automatisch erstellen
-for (let index = 0; index < numberOfBoxes; index++) {
-  const input = document.createElement("input");
+  function addLetter(letter) {
+    if (currentGuess.length < ANSWER_LENGTH) {
+      // Add letter to the end
+      currentGuess += letter;
+    } else {
+      // Replace the last letter
+      currentGuess =
+        currentGuess.substring(0, currentGuess.length - 1) + letter;
+    }
 
-  input.className = "letter-box";
-  input.type = "text";
-  input.maxLength = 1;
-  input.inputMode = "text";
-  input.autocomplete = "off";
-  input.spellcheck = false;
-  input.setAttribute(
-    "aria-label",
-    `Zeile ${Math.floor(index / columns) + 1}, Spalte ${(index % columns) + 1}`
-  );
+    letters[ANSWER_LENGTH * currentRow + currentGuess.length - 1].innerText =
+      letter;
+  }
 
-  grid.appendChild(input);
+  async function commit() {
+    if (currentGuess.length !== ANSWER_LENGTH) {
+      // Do nothing
+      return;
+    }
+
+    currentRow++;
+    currentGuess = "";
+  }
+
+  function backspace() {
+    if (currentGuess.length > 0) {
+      currentGuess = currentGuess.substring(0, currentGuess.length - 1);
+      letters[ANSWER_LENGTH * currentRow + currentGuess.length].innerText = "";
+    }
+  }
+
+  // Now we can do await wherever we want to here
+  document.addEventListener("keydown", function handleKeypress(event) {
+    const action = event.key;
+
+    if (action === "Enter") {
+      commit();
+    } else if (action === "Backspace") {
+      backspace();
+    } else if (isLetter(action)) {
+      addLetter(action.toUpperCase());
+    } else {
+      // Do nothing
+    }
+  });
 }
+
+init();
