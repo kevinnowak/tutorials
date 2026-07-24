@@ -28,7 +28,6 @@ function makeMap(array) {
   return obj;
 }
 
-// Ensuring the typing works
 async function init() {
   let isLoading = true;
 
@@ -67,6 +66,26 @@ async function init() {
       return;
     }
 
+    isLoading = true;
+    setLoading(true);
+    const res = await fetch("https://words.dev-apis.com/validate-word", {
+      method: "POST",
+      body: JSON.stringify({ word: currentGuess }),
+    });
+
+    const resObj = await res.json();
+    const validWord = resObj.validWord;
+    // Or: const { validWord } = resObj;
+
+    isLoading = false;
+    setLoading(false);
+
+    if (!validWord) {
+      markInvalidWord();
+
+      return;
+    }
+
     const guessParts = currentGuess.split("");
 
     for (let i = 0; i < ANSWER_LENGTH; i++) {
@@ -91,6 +110,7 @@ async function init() {
 
     if (currentGuess === word) {
       alert("You have won!");
+      document.querySelector(".brand").classList.add("winner");
       done = true;
     } else if (currentRow === ROUNDS) {
       alert(`You lost! The word was ${word}`);
@@ -104,6 +124,18 @@ async function init() {
     if (currentGuess.length > 0) {
       currentGuess = currentGuess.substring(0, currentGuess.length - 1);
       letters[ANSWER_LENGTH * currentRow + currentGuess.length].innerText = "";
+    }
+  }
+
+  function markInvalidWord() {
+    // alert("That is not a valid word!");
+
+    for (let i = 0; i < ANSWER_LENGTH; i++) {
+      letters[currentRow * ANSWER_LENGTH + i].classList.remove("invalid");
+
+      setTimeout(function () {
+        letters[currentRow * ANSWER_LENGTH + i].classList.add("invalid");
+      }, 10);
     }
   }
 
@@ -128,4 +160,4 @@ async function init() {
   });
 }
 
-init();
+init().then(() => {});
